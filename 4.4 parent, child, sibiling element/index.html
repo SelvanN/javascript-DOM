@@ -1,0 +1,65 @@
+<!-- 2. Traversing elements:
+    
+     1. selecting parent element
+     2. selecting child element
+     3. selecting Sibiling element   -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traversing element</title>
+</head>
+
+<body>
+    <!-- 1. selecting parent element -->
+
+    <div class="title">
+        <p class="text"> Welcome to my Website</p>
+    </div>
+    <script>
+        let txt = document.querySelector(".text");
+        console.log(txt.parentNode);
+        console.log(txt.parentElement);
+    </script>
+
+    -------------------------------------------------------------------------------
+    <!-- 2. selecting child element -->
+
+    <div class="message">
+        <p>Welcome to my webpage 1</p>
+        <p>Welcome to my webpage 2</p>
+        <p>Welcome to my webpage 3</p>
+        <p>Welcome to my webpage 4</p>
+    </div>
+    <script>
+        let parent = document.querySelector(".message");
+        console.log(parent.firstChild);
+        console.log(parent.childNodes[3]);
+        console.log(parent.firstElementChild);
+        console.log(parent.lastElementChild);
+    </script>
+
+    ------------------------------------------------------------------------------
+    <!-- 3. selecting Sibiling element 
+              -select the next sibiling or previous sibilings of an element -->
+
+    <div class="message">
+        <p>Welcome to my site 1</p>
+        <p class="second">Welcome to my site 2</p>
+        <p>Welcome to my site 3</p>
+        <p>Welcome to my site 4</p>
+    </div>
+    <script>
+        let second = document.querySelector('.second');
+        console.log(second.previousElementSibling);
+        console.log(second.nextElementSibling);
+        console.log(second.nextSibling);
+        console.log(second.parentElement);
+    </script>
+
+</body>
+
+</html>

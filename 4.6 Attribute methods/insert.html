@@ -1,0 +1,60 @@
+<!-- Attribute methods -->
+
+<!-- 1. getAttribute() 
+     2. setAttribute() 
+     3. hasAttribute() 
+     4. removeAttribute()  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 1. getAttribute()  -->
+
+    <input type="text" id="username" placeholder="username">
+    <script>
+        let inputBox = document.getElementById("username");
+
+        console.log(inputBox.attributes);
+        console.log(inputBox.getAttribute("placeholder"));
+
+
+    </script>
+
+    <!-- 2. setAttribute()  -->
+
+    <input type="text" id="username" placeholder="username">
+    <script>
+        let inputBox1 = document.getElementById("username");
+        // inputBox1.setAttribute("name","value"); // syntax
+        inputBox1.setAttribute("class", "user");
+        console.log(inputBox1);
+    </script>
+
+<!-- 3. hasAttribute()  -->
+
+<input type="text" id="username" placeholder="username">
+<script>
+    let inputBox2 = document.getElementById("username");
+    console.log(inputBox2.hasAttribute("id"));  // output is boolean : true
+</script>
+
+<!--4.removeAttribute -->
+
+<input type="text" id="username" placeholder="username">
+<script>
+    let inputBox3 = document.getElementById("username");
+    inputBox3.removeAttribute("placeholder");
+    console.log(inputBox3);  
+</script>
+
+
+</body>
+
+</html>

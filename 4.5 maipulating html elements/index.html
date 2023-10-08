@@ -1,0 +1,160 @@
+<!-- 
+
+3. Manipulating hTMl element
+
+     1. createElement() 
+     2. appendChild()
+     3. textContent
+     4. innnerHTML
+     5. after()
+     6. append()
+     7. prepend()
+     8. insertAdjacentHTMl()
+     9. replaceChild()
+     10. clonenode()
+     11. removeChild()
+     12. insertBefore() -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulating HTMl elements</title>
+</head>
+
+<body>
+
+    <!-- 1. document.createElement() 
+               -The document.createElement() accepts an HTML tagname and returns a
+                       new Node with the element type-->
+
+    <script>
+        let div = document.createElement('div');
+        div.innerHTML = "<p> welcome to my website </p>";
+        div.className = "title";
+        div.id = "text";
+        document.body.append(div);                               // its display outpage of website
+        console.log(div);                                         // its display console
+    </script>
+
+
+    ----------------------------------------------------------------------------------------------
+
+    <!-- 2. document.appendChild() 
+               - use appendChild() method to add a node to the end of the list of child nodes
+                    of a specified parentnode.
+               - The appendChild() can be to move an existing child node to the new position within the document.-->
+
+    <ul id="menu">
+        <li>home</li>
+        <li>about</li>
+        <li>Blog</li>
+        <li>project</li>
+    </ul>
+    <script>
+        let menu = document.getElementById('menu');
+        let list = document.createElement('li');
+        list.innerHTML = "contact";
+        menu.appendChild(list);
+    </script>
+
+    --------------------------------------------------------------------------------------------------
+
+    <!-- 3. document.textContent() 
+               - TO get the textContent of a node and its  descendants, you use the textContentproperty-->
+
+
+    <ul id="menu">
+        <li>home</li>
+        <li>about</li>
+        <li>Blog</li>
+        <li style="display: none;">project</li>
+    </ul>
+    <script>
+        let Menu = document.getElementById('menu');
+        console.log(Menu);
+        console.log(Menu.textContent);   // its show html textContent only
+        consolelog(menu.innerText)      // its show css styles aslo 
+        Menu.textContent = "Hello!";      // its over write the whole content
+
+    </script>
+    .
+    ----------------------------------------------------------------------------------------------------
+
+    <!-- 4. document.innerHTML() 
+             - innerHTML code is use add the html code on the webpage-->
+
+    <ul id="menu">
+        <li>home</li>
+        <li>about</li>
+        <li>Blog</li>
+        <li style="display: none;">project</li>
+    </ul>
+    <script>
+        let Menu1 = document.getElementById('menu');
+        Menu1.innerHTML = "<h1>Hello!</h1>";
+        // Menu1.textContent="<h1>Hello!</h1>";        
+    </script>
+
+    -------------------------------------------------------------------------------------------------------
+
+    <!-- 5. after() method -->
+    <!-- 6. append() method -->
+    <!-- 7. prepend() method -->
+    <!-- 8. insertAdjacentHTML() -->
+    <!-- 9. replaceChild() -->
+    <!-- 10. clonenode() -->
+     <!--11. removeChild() -->
+      <!--12. insertBefore() -->
+    <ul id="menu">
+        <li>home</li>
+        <li>about</li>
+        <li>Blog</li>
+        <li style="display: none;">project</li>
+    </ul>
+    <script>
+        let Menu2 = document.getElementById('menu');
+
+        after() 
+        Element.after(node, node1, node2) //syntax for after() method
+        menu.after("hi", "hai");
+
+        // append()
+        parentNode.append(newNodes);  // syntax for append() method
+
+        // append() 
+        parentNode.prepend(newNodes);  // syntax for prepend() method
+
+        // insertAdjacentHTMl()
+        Element.insertAdjacentHTML(positionName,text); // syntax for insertAdjacentHTML() method
+                            // positionNAmes -( beforeend,afterend,beforebegin,afterbegin)
+        Menu2.insertAdjacentHTML("beforeend","<li>help</li>");
+        Menu2.insertAdjacentHTML("afterbegin","<li>help</li>");
+
+        // replaceChild()
+        parentNode.replaceChild(newChild,oldChild);  // syntax for replaceChild() method
+
+        cloneNode()
+        // let newNode = originalNode.cloneNode(); // syntax for cloneNode() method
+        let newNode = Menu2.cloneNode(true);
+        console.log(newNode);
+
+        // removeChild() 
+        // parentNode.removeChild(childNode); // syntax for removeChild() method
+        Menu.removeChild(Menu.lastElementChild);
+        Menu.removeChild(Menu.firstElementChild);
+
+        //insertBefore()
+        parentNode.insertBefore(newNode, existingNode);
+
+    </script>
+
+
+
+
+</body>
+
+</html>

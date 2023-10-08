@@ -1,0 +1,136 @@
+<!-- 
+6. javascript Events
+
+     1. what is Event
+     2. Event Bubblilng & Event Capturing
+     3. Event Handler in HTML Attributes
+     4. DOM level 0 event handlers
+     5. addEventListener()
+     6. removeEventListener()
+     7. Event objects
+     8. Different Type of Event -->
+
+
+<!-- 1. what is event
+             - when we click on the webpage its a click event 
+             - when we move curser over the webpage its a mouse mover event
+             - when the webpage loads thats a webpage load event.
+                  like that we have multiple types of event in javascript
+    -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <button type="button" onclick="displaymsg()">click here</button>
+    </div>
+
+    <script>
+        function displaymsg() {
+            console.log('button clicked from fn');
+        }
+    </script>
+
+    -------------------------------------------------------------------------------------------------------<br>
+
+    <!-- 2. Event objects :-->
+
+    <button type="button" onclick="console.log(event.type)">click here type</button>
+    <button type="button" onclick="console.log(event.target)">click here target</button>
+
+    <!-- this keyword:
+             -this keyword is inside event handler refers to the target element -->
+
+    <button id="btn" type="button" onclick="console.log(this)">click here this</button>
+    <button id="btn" type="button" onclick="console.log(this.id)">click here this</button>
+
+    --------------------------------------------------------------------------------------------------
+
+    <!-- 3. Event Handler: -->
+
+    <div id="container">
+        <button id="btn1">click here sir</button>
+    </div>
+    <script>
+        let button = document.getElementById("btn1");
+        button.onclick = function () {
+            console.log("button clicked");
+            console.log(this);
+            console.log(this.id);
+
+        }
+        // button.onclick=null;
+    </script>
+
+    --------------------------------------------------------------------------------------------------
+
+    <!-- 4. addEventListener() 
+              - addEventListener() method will register an event handler-->
+
+
+    <div id="container">
+        <button id="btn2">click here bro</button>
+    </div>
+    <script>
+        let btn = document.getElementById('btn2')
+        // addEventListener(event, function , Capture); // syntax
+        btn2.addEventListener("click", function () {
+            console.log("Button clicked!");
+        })
+        btn2.addEventListener("click", (event) => {
+            console.log(event.type);
+        })
+        function displaymsg() {
+            console.log('button clicking')
+        };
+        btn2.addEventListener("click", displaymsg());
+    </script>
+
+    -----------------------------------------------------------------------------------------------------------
+
+    <!-- 5. removeEventListener()
+               - removeEventListener() method will remove an event handler-->
+
+    <div id="myDIV" style="background-color: aqua; padding:10px";>
+        This orange element has an onmousemove event handler
+        that displays a random number when you move the
+        mouse inside.
+
+        <p>Click "Remove" to remove the event handler.</p>
+        <button onclick="removeHandler()">Remove</button>
+    </div>
+
+    <p id="demo"></p>
+
+    <script>
+        const myDiv = document.getElementById("myDIV");
+        myDiv.addEventListener("mousemove", myFunction);
+
+        function removeHandler() {
+            myDiv.removeEventListener("mousemove", myFunction);
+        }
+
+        function myFunction() {
+            document.getElementById("demo").innerHTML = Math.random();
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

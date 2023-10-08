@@ -1,0 +1,93 @@
+<!-- 
+5. Manipulating Element's styles
+
+     1. style Property
+     2. cssText
+     3. getComputedStyle()
+     4. className property
+     5. classList property -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            background-color: bule;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1. Style property-->
+
+    <input type="text" id="user" placeholder="username" style="background-color: red; font-size: 20px;">
+    <script>
+        let inputBox = document.getElementById("user");
+        console.log(inputBox.style);
+        console.log(inputBox.style.fontSize);
+        console.log(inputBox.style.backgroundColor);
+        inputBox.style.padding = "10px";                   // to set the style
+        console.log(inputBox);
+    </script>
+
+    ------------------------------------------------------------------------------------------------------
+    <!-- 2. cssText -->
+
+    <input type="text" id="user" placeholder="username" style="background-color: red; font-size: 20px;">
+    <script>
+        let inputBox1 = document.getElementById("user");
+        // inputBox.style.cssText="width:200px";                         // its overwrite the all css styles
+        inputBox.style.cssText += "width:200px; height:200px";            // concadinate using +=
+        console.log(inputBox1);
+    </script>
+
+    ----------------------------------------------------------------------------------------------------
+
+    <!-- 3. getComputedStyle() -->
+
+    <input type="text" id="user" placeholder="username">
+
+    <script>                                                      // css style added in external style in head tag
+        let inputBox4 = document.getElementById("user");
+        // window.getComputedStyle(element, pseudoElement);    // syntax
+        console.log(window.getComputedStyle(inputBox4).fontSize);
+        console.log(window.getComputedStyle(inputBox4).backgroundColor);
+    </script>
+
+    ----------------------------------------------------------------------------------------------------
+
+    <!-- 4. className property -->
+    
+    <h1 id="title" class="main message">Hello everyone</h1>
+    <script>
+        let title = document.getElementById("title");
+        console.log(title.className);
+        // title.className ="new";   // its overwrite all classnames
+        title.className +=" new";   
+        console.log(title)
+    </script>
+
+---------------------------------------------------------------------------------------------------------
+  <!-- 4. classList property -->
+    
+  <h1 id="title" class="main message">Hello everyone</h1>
+  <script>
+      let title1 = document.getElementById("title");
+      title1.classList.add("new", "new2");
+    //   title1.classList.remove( "message");
+      title1.classList.replace( "message", "msg");
+      title1.classList.toggle( "msg");                     // toggle is add or remove
+      title1.classList.toggle( "new3");                    // toggle is add or remove
+      console.log(title1.classList.contains( "main"));
+      console.log(title1);
+  </script>
+
+</body>
+
+</html>

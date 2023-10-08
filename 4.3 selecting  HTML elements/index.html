@@ -1,0 +1,127 @@
+<!-- 1. Selecting Elements using DOM
+
+     1. getElementById()
+     2. getElementsByName()
+     3. getElementsByTagName()
+     4. getElementsByClassName()
+     5. querySelector() and querySelectorAll() -->
+
+
+
+<!doctype html>
+<html>
+
+<head>
+    <title> Selecting Elements</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 1. getElementById() 
+              -The getElementById() method returns an Element object that represents an HMTL element  -->
+
+    <h1 id="heading">Welcome </h1>
+    <script>
+        // document.getElementById('heading').innerHTML = "hi, guys"; 
+        let Heading = document.getElementById("heading");
+        console.log(Heading);
+    </script>
+
+    -------------------------------------------------------------------------------
+
+    <!-- 2. getElementsByName() -->
+
+    <input type="radio" name="language" value="HTML">
+    <input type="radio" name="language" value="JavaScript">
+    <script>
+        let btn = document.getElementsByName('language');
+        console.log(btn);
+    </script>
+
+    --------------------------------------------------------------------------------
+
+    <!-- 3. getElementsByTagName()  
+               - The getElementsByTagName() method accepts a tag name and returns a live HTML Collection of elements-->
+
+    <h2> first heading </h2>
+    <h2> secong heading </h2>
+    <h2> third heading </h2>
+    <h2> fourth heading </h2>
+    <script>
+        let heading = document.getElementsByTagName('h2')[2].innerHTML = "friends";
+        console.log(heading);
+    </script>
+
+    -------------------------------------------------------------------------------------
+
+    <!-- 4.getElementsByClassName()  
+            - The getElementsByClassName() method returns an array like of Object of the child elements with specified class name.-->
+
+    <!-- method 1 -->
+    <h1 class="msg"> first heading </h1>
+    <h1 class="msg"> secong heading </h1>
+    <h1 class="msg"> third heading </h1>
+    <script>
+        let message = document.getElementsByClassName("msg");
+        console.log(message);
+    </script>
+
+    <!-- method 2 -->
+    <h1 class="msg"> first heading </h1>
+    <div id="container">
+        <h1 class="msg"> secong heading </h1>
+        <h1 class="msg"> third heading </h1>
+    </div>
+    <script>
+        let cont = document.getElementById('container');
+        let containerMsg = cont.getElementsByClassName("msg");
+        console.log(containerMsg);
+    </script>
+
+    -----------------------------------------------------------------------------------------------------------------
+
+    <!-- 5. querySelector() and querySelectorAll() 
+                - The querySelector() method is using to selcet like css selectors ,for eg using dot(.)-->
+
+    <!-- querySelector() -->
+
+    <h1 class="msg"> first heading </h1>
+    <div id="container">
+        <h1 class="msg"> secong heading </h1>
+        <h1 class="msg"> third heading </h1>
+    </div>
+    <script>
+        let msg = document.querySelector(".msg");
+        console.log(msg);
+    </script>
+
+    <!-- querySelectorAll() -->
+
+    <h1 class="msg"> first heading </h1>
+    <div id="container">
+        <h1 class="msg"> secong heading </h1>
+        <h1 class="msg"> third heading </h1>
+    </div>
+    <script>
+        let const1 = document.getElementById('container');
+        let msg1 = const1.querySelectorAll(".msg");
+        let msg2 = const1.querySelectorAll("#container");
+        let msg3 = const1.querySelectorAll("div h1");   // u can give all css selector in querySelectorAll
+        let msg4 = const1.querySelectorAll("div, h1");
+
+        console.log(msg1);
+        console.log(msg2);
+        console.log(msg3);
+        console.log(msg4);
+
+    </script>
+
+
+
+
+    <script src="script.js">
+    </script>
+</body>
+
+</html>
